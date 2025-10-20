@@ -411,7 +411,8 @@
             <div class="modal-info">
                 <h3 id="modalTitle"></h3>
                 <p id="modalYear"></p>
-            </div>
+                <p id="modalDescription" style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;"></p>
+</div>
         </div>
     </div>
 
@@ -424,31 +425,37 @@
                 title: "Turquoise Dream",
                 year: "2024",
                 image: "images/test.png"
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             },
             {
                 title: "Golden Petals",
                 year: "2024",
                 image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800"
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             },
             {
                 title: "Ocean Whispers",
                 year: "2023",
                 image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800"
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             },
             {
                 title: "Ethereal Light",
                 year: "2023",
                 image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800"
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             },
             {
                 title: "Botanical Elegance",
                 year: "2023",
                 image: "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=800"
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             },
             {
                 title: "Nature's Canvas",
                 year: "2022",
                 image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800"
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             }
         ];
 
@@ -467,17 +474,18 @@
                         <p>${artwork.year}</p>
                     </div>
                 `;
-                item.onclick = () => openModal(artwork.image, artwork.title, artwork.year);
+                item.onclick = () => openModal(artwork.image, artwork.title, artwork.year, artwork.description);
                 grid.appendChild(item);
             });
         }
 
         // モーダルを開く
-        function openModal(imgSrc, title, year) {
+       function openModal(imgSrc, title, year, description) {
             document.getElementById('modal').style.display = 'flex';
             document.getElementById('modalImg').src = imgSrc;
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalYear').textContent = year;
+            document.getElementById('modalDescription').textContent = description || '';
             document.body.style.overflow = 'hidden';
         }
 
@@ -547,6 +555,7 @@
 </body>
 
 </html>
+
 
 
 
