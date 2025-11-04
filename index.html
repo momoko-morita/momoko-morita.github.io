@@ -414,9 +414,10 @@
             <button class="close-modal" onclick="closeModal()">&times;</button>
             <img id="modalImg" src="" alt="">
             <div class="modal-info">
-                <h3 id="modalTitle"></h3>
-                <p id="modalYear"></p>
-            </div>
+            <h3 id="modalTitle"></h3>
+            <p id="modalYear"></p>
+            <p id="modalDescription" style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;"></p>
+</div>
         </div>
     </div>
 
@@ -428,7 +429,8 @@
             {
                 title: " Luminous blood / 2025.8.13 1167mm×910mm acryl、oil pastel、oilstick、on canvas",
                 year: "2025",
-                image: "images/image1.jpg"
+                image: "images/image1.jpg",
+                description: "ここに作品の解説文を入れます。2-3行程度で作品のコンセプトや制作背景などを記載できます。"
             },
             {
                 title: "Golden Petals",
@@ -472,19 +474,20 @@
                         <p>${artwork.year}</p>
                     </div>
                 `;
-                item.onclick = () => openModal(artwork.image, artwork.title, artwork.year);
+                item.onclick = () => openModal(artwork.image, artwork.title, artwork.year, artwork.description);
                 grid.appendChild(item);
             });
         }
 
         // モーダルを開く
-        function openModal(imgSrc, title, year) {
-            document.getElementById('modal').style.display = 'flex';
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalYear').textContent = year;
-            document.body.style.overflow = 'hidden';
-        }
+        function openModal(imgSrc, title, year, description) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modalImg').src = imgSrc;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalYear').textContent = year;
+    document.getElementById('modalDescription').textContent = description || '';
+    document.body.style.overflow = 'hidden';
+}
 
         // モーダルを閉じる
         function closeModal() {
@@ -552,6 +555,7 @@
 </body>
 
 </html>
+
 
 
 
